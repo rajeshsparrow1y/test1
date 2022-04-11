@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static  %}
+    <link  rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>home</title>
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            <p align="center" style="color:#fff">{{ message }}
+        {% endfor %}
+    {% endif %}
+
+      <br>
+<br>
+    <div class="cont">
+        <form method="post" action="">
+            {% csrf_token %}
+
+        <div class="form sign-in">
+            <h2>Welcome</h2>
+            <label>
+                <span>Username</span>
+                {{ loginform.username }}
+
+            </label>
+            <label>
+                <span>Password</span>
+                {{ loginform.password }}
+            </label>
+            <p class="forgot-pass">Forgot password?</p>
+<!--            <input type="button" class="submit">Sign In</input>-->
+            <button><input  class="submit" type="button" value="Sign In"></button>
+        </form>
+        </div>
+        <div class="sub-cont">
+            <div class="img">
+                <div class="img__text m--up">
+
+                    <h3>Don't have an account? Please Sign up!<h3>
+                </div>
+                <div class="img__text m--in">
+
+                    <h3>If you already has an account, just sign in.<h3>
+                </div>
+                <div class="img__btn">
+                    <span class="m--up">Sign Up</span>
+                    <span class="m--in">Sign In</span>
+                </div>
+            </div>
+            <div class="form sign-up">
+                <form method="post" action="">
+                    {% csrf_token %}
+                <h2>Create your Account</h2>
+                <label>
+                    <span>Username</span>
+<!--                    <input type="text" />-->
+                    {{ registerform.username }}
+                </label>
+                <label>
+                    <span>Email</span>
+<!--                    <input type="email" />-->
+                    {{ registerform.email }}
+                </label>
+                <label>
+                    <span>password</span>
+<!--                    <input type="number" />-->
+                    {{ registerform.password1 }}
+                </label>
+                <label>
+                    <span>Password Confirmation</span>
+<!--                    <input type="password" />-->
+                    {{ registerform.password2 }}
+                </label>
+<!--                <button type="button" class="submit">Sign Up</button>-->
+                     <button><input  class="submit" type="submit" value="Sign Up"></button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.img__btn').addEventListener('click', function() {
+            document.querySelector('.cont').classList.toggle('s--signup');
+        });
+    </script>
+
+</body>
+</html>

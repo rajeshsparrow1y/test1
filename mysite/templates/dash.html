@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+<!--    <link type="text/css" rel="stylesheet" href="{% static 'style1.css' %}">-->
+    <link  rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <title>dashboard</title>
+</head>
+<body>
+    <div class="menu">
+        <div class="menu-icon">
+            <div class="logo"><i class="fa-solid fa-leaf"></i> DASHBOARD</div>
+  <i class="fa-solid fa-align-left" id='botao'></i>
+  </div>
+
+  <nav class="nav">
+    <ul>
+      <li><i class="fa-solid fa-calendar-plus"></i>Status</li>
+      <li><i class="fa-solid fa-location-dot"></i> Update</li>
+      <li><i class="fa-solid fa-user-plus"></i><a href="{% url 'home' %}">Logout</a></li>
+    </ul>
+  </nav>
+</div>
+
+ <div class="top-bar">
+        <div class="container flex">
+            <div class="flex">
+                <div><i class="fas fa-map-signs"></i></div>
+<!--                <span style="color:white">My Street 27, Novi Sad, Serbia</span>-->
+                <span style="color:white;font-family: 'Open Sans', Helvetica, Arial, sans-serif;">{{ user.username }}</span>
+            </div>
+            <div class="flex">
+                <div><i class="fas fa-hourglass-half"></i></div>
+                <span style="color:white;align-items:right;">{{time}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="nav-content">
+        <div class="container">
+                <div class="nav flex">
+                    <a href="index.html">
+
+                    </a>
+                        <ul class="flex">
+                            <li><a href="index.html">Status</a></li>
+                            <li><a href="about.html">Update</a></li>
+                            <li><a href="{% url 'home' %}">Logout</a></li>
+                        </ul>
+                </div>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <h1 align="center" style="color:#fff;font-size: 18px; font-family: 'Open Sans', Helvetica, Arial, sans-serif;">USERNAME: {{ user.username }}</h1>
+    <h1 align="center" style="color:#fff;font-size: 18px;font-family: 'Open Sans', Helvetica, Arial, sans-serif; ">Email: {{ user.email }}</h1>
+
+<script>
+const botao = document.querySelector('#botao')
+const nav = document.querySelector('.menu')
+
+function ativar(){
+  nav.classList.toggle('active')
+}
+
+botao.addEventListener('click', ativar)
+</script>
+</body>
+</html>
