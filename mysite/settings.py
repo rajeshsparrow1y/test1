@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-tuv!=xo9i#kr26dw30au@2g@c6-lol#)gb&id%=t+ii*6$rt_+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['centumworld.herokuapp.com']
 
 
 # Application definition
